@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  my-node:
+    build: .
+    ports:
+      - 3000:3000
+    networks:
+      - test
+  nginx-config:
+    depends_on:
+      - my-node
+    image: nginx:alpine
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./ssl/my-site.crt:/etc/ssl/my-site.crt
+      - ./ssl/my-site.key:/etc/ssl/my-site.key
+    ports:
+      - 80:80
+      - 443:443
+    networks:
+      - test
+
+networks:
+  test:
