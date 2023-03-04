@@ -1,6 +1,7 @@
 {
   "scripts": {
     "build": "tsc",
+    "test": "",
     "start": "node dist/main.js"
   },
   "devDependencies": {
