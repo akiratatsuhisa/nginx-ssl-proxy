@@ -20,7 +20,7 @@ jobs:
 
   deploy:
     needs: test-and-build
-    if: github.ref == 'refs/heads/main' && github.event.pull_request.merged && startsWith(github.head_ref, 'feature/')
+    if: github.ref == 'refs/heads/main' && github.event.pull_request.merged
 
     runs-on: ubuntu-latest
     steps:
